@@ -32,7 +32,9 @@ module Jekyll
       chap = book.chapter('f')
       compiler = ReVIEW::Compiler.new(load_strategy_class('html', false))
       s = compiler.compile(chap)
-      s.gsub('<span class="secno">chapterchapter_postfix</span>', '')
+      s = s.gsub('<span class="secno">chapterchapter_postfix</span>', '')
+      s = s.gsub(/<span class="secno">\d+\.\d+chapter_postfix<\/span>/, '')
+      s
     end
 
     def load_strategy_class(target, strict)
