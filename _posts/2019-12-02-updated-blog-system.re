@@ -61,7 +61,7 @@ _config.ymlの@<code>{exclude}指定に画像ディレクトリを追加して�
 最後の厄介どころは、Jekyllの公開ディレクトリがビルドの都度クリアされる点だった。
 そしてクリーンアップはHTML類のビルド後にも走るため、ビルド中に作成した画像もきれいに削除されてしまう。
 
-クリーンアップ処理をサボらせるための仕組みがあるはず、とJekyllのコードを調べていたら、jekyll/cleaner.rbとそのテストコードであるtest/test_cleaner.rbが大変役立った。
+クリーンアップ処理をサボらせるための仕組みがあるはず、とJekyllのコードを調べていたら、@<href>{https://github.com/jekyll/jekyll/blob/master/lib/jekyll/cleaner.rb, jekyll/cleaner.rb}とそのテストコードである@<href>{https://github.com/jekyll/jekyll/blob/master/test/test_cleaner.rb, test/test_cleaner.rb}が大変役立った。
 _config.yml内に@<code>{keep_files}という配列を作って画像配置ディレクトリを除外処理したところ、問題なく保持できた@<fn>{fn-keep}。
 
 //footnote[fn-keep][該当箇所: @<href>{https://github.com/muojp/jrblog/blob/c3d1890cb98879ea5f365534c0ddfc9d06d2874b/_config.yml#L42-L43}]
