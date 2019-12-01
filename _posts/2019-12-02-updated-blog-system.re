@@ -47,7 +47,9 @@ gemで配布できる範囲のJekyllプラグインを目指す以上、Jekyll�
 
 VSCode+language-review拡張でのプレビューを考えて画像ディレクトリは_postsディレクトリ以下に配置。
 このため画像ファイル類がJekyllの変換ソースとして扱われる（Jekyllは.pngでも容赦なくソースとして解釈しようとする）。
-_config.ymlの@<code>{exclude}指定に画像ディレクトリを追加して回避。
+_config.ymlの@<code>{exclude}指定に画像ディレクトリを追加して回避@<fn>{fn-exclude}。
+
+//footnote[fn-exclude][該当箇所: @<href>{https://github.com/muojp/jrblog/blob/c3d1890cb98879ea5f365534c0ddfc9d06d2874b/_config.yml#L45-L46}]
 
 ==== 公開記事のみ画像を公開エリアへ配備
 
@@ -60,7 +62,9 @@ _config.ymlの@<code>{exclude}指定に画像ディレクトリを追加して�
 そしてクリーンアップはHTML類のビルド後にも走るため、ビルド中に作成した画像もきれいに削除されてしまう。
 
 クリーンアップ処理をサボらせるための仕組みがあるはず、とJekyllのコードを調べていたら、jekyll/cleaner.rbとそのテストコードであるtest/test_cleaner.rbが大変役立った。
-_config.yml内に@<code>{keep_files}という配列を作って画像配置ディレクトリを除外処理したところ、問題なく保持できた。
+_config.yml内に@<code>{keep_files}という配列を作って画像配置ディレクトリを除外処理したところ、問題なく保持できた@<fn>{fn-keep}。
+
+//footnote[fn-keep][該当箇所: @<href>{https://github.com/muojp/jrblog/blob/c3d1890cb98879ea5f365534c0ddfc9d06d2874b/_config.yml#L42-L43}]
 
 == 無事
 
@@ -68,3 +72,5 @@ _config.yml内に@<code>{keep_files}という配列を作って画像配置デ�
 
 //image[2019-12-02-muoya][muo-ya]{
 //}
+
+これでAdvent Calendarを書くのに最低限必要な機能は揃ったことになりますね！
