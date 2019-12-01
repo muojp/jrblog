@@ -1,5 +1,4 @@
 require 'review'
-require 'fileutils'
 
 module Jekyll
   class ReVIEWConverter < Converter
@@ -14,32 +13,46 @@ module Jekyll
       '.html'
     end
 
-    def convert(content)
-      f = File.open('/tmp/f.re', 'w')
-      f.write(content)
-      f.close()
-      FileUtils.mkdir_p '/tmp/tmp'
-      f = File.open('/tmp/tmp/f.re', 'w')
-      f.write(content)
-      f.close()
-
-      config = ReVIEW::Configure.values
-      config['builder'] = 'html'
-      ReVIEW::I18n.setup(@config['language'])
-
-      book = ReVIEW::Book::Base.load('/tmp')
-      book.config = config
-      chap = book.chapter('f')
-      compiler = ReVIEW::Compiler.new(load_strategy_class('html', false))
-      s = compiler.compile(chap)
-      s = s.gsub('<span class="secno">chapterchapter_postfix</span>', '')
-      s = s.gsub(/<span class="secno">\d+\.\d+chapter_postfix<\/span>/, '')
-      s
+    def extract_content(data)
+      ret = []
+      state = 0
+      data.lines.each do |line|
+        case state
+          when 0
+            if line.include? '<h1>'
+              state = 1
+            else
+              # skip <html> / <title> / .. header tags
+            end
+          when 1
+            if line.include? '</body>'
+              state = 2
+            else
+              ret.push(line)
+            end
+          else
+        end
+      end
+      ret.join
     end
 
-    def load_strategy_class(target, strict)
-      require "review/#{target}builder"
-      ReVIEW.const_get("#{target.upcase}Builder").new(strict)
+    def convert(content)
+      config = ReVIEW::Configure.values
+      config['builder'] = 'html'
+      config['secnolevel'] = 0 # 見出し採番しないとして
+      ReVIEW::I18n.setup(config['language'])
+
+      builder = ReVIEW::HTMLBuilder.new
+      book = ReVIEW::Book::Base.new('.')
+      book.config = config
+      compiler = ReVIEW::Compiler.new(builder)
+      chap = ReVIEW::Book::Chapter.new(book, '20191201', '-', nil, nil) 
+      chap.content = content # 書き出したのをFile.readでもいいとは思うけど
+      location = ReVIEW::Location.new(nil, nil)
+      builder.bind(compiler, chap, location)
+      compiler.compile(chap)
+      s = builder.result
+      s = extract_content(s)
     end
   end
 end

@@ -1,6 +1,13 @@
+---
+layout: post
+title:  "Jekyll+Re:VIEW+Netlifyでblogを作ってる"
+date:   2019-12-01 00:02:00 +0900
+categories: about
+---
 = Jekyll+Re:VIEW+Netlifyでblogを作ってる
 
 //lead{
+
 本エントリは、@<href>{https://b.muo.jp, muo-ya} Advent Calendarの1日目の記事です。
 
 日々さまざまなメモをRe:VIEW形式で書いているのでblogも同形式でささっと書けるようにしたいというお話です。
@@ -53,6 +60,15 @@ Re:VIEWが特定のディレクトリを書籍のソースディレクトリと�
 たぶんRuby版Re:VIEW（4.0.0）自体になにかしらの不具合があるものと思いますが、内容をダンプしつつフローを追いかけていったところ「/tmpを書籍ディレクトリとして初期化すると、/tmpを開き、ファイル一覧を作成し、読み込み時には/tmp/tmp/以下から読む」という謎な動きをしていたのでワークアラウンドしたのみです。
 
 なにぶん、前述のパラダイム差を吸収するために/tmpディレクトリへ直接ファイルを生成する乱暴な実装なので、じきにもう少々改善したいところです。
+
+====[column] 追記
+
+と書いていたら、Re:VIEWメンテナの@<href>{https://twitter.com/kmuto, @kmuto}さんからアドバイスを頂きました。
+
+@<raw>{|html|<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">一時ファイル作らずにこういうかんじでどうでしょう? <a href="https://t.co/S1HF5I062h">https://t.co/S1HF5I062h</a></p>&mdash; kmuto (@kmuto) <a href="https://twitter.com/kmuto/status/1200981325529763840?ref_src=twsrc%5Etfw">December 1, 2019</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>}
+
+アドバイスってレベルじゃなくて答えそのものですね。
+ChapterもLocationもin-placeで生成して食わせる、、なるほど。
 
 == Netlifyの使い勝手
 
