@@ -14,20 +14,22 @@ categories: ac2019
 
 //}
 
-時事ドットコムニュースの@<href>{https://www.jiji.com/jc/graphics?p=ve_eco_kinyushoken20190816j-05-w380, 【図解・経済】各国のキャッシュレス決済比率（2019年8月）}という記事によると、キャッシュレス決済比率は45%です。
+時事ドットコムニュースの@<href>{https://www.jiji.com/jc/graphics?p=ve_eco_kinyushoken20190816j-05-w380, 【図解・経済】各国のキャッシュレス決済比率（2019年8月）}という記事によると、同国のキャッシュレス決済比率は45%です。
 
 == 調べるにあたり、まずは銀行口座開設
 
 米国のキャッシュレス事情を把握するためには現地の銀行口座を開設するのが手っ取り早いので、ハワイへ飛んで@<href>{https://www.fhb.com/, First Hawaiian Bank}（FHB）という銀行の口座を開設しました。
 ハワイとグアムに特化した銀行で、米国の口座開設で真っ先に必要とされるSSN（社会保障番号）の提出が不要です。
 
-口座開設のハードル低さに加えて、ホノルルの金融街にある支店では日本語で口座開設を完結できるというお手軽仕様で、一定の条件のもとでMasterCardのデビットカードを無料発行、そして何より重要な同カードのGoogle Pay/Apple Payへの登録が可能という万能銀行です。
+口座開設のハードル低さに加えて、ホノルルの金融街にある支店（その名もMain Branch）では日本語で口座開設を完結できるというお手軽仕様で、一定の条件のもとでMasterCardのデビットカードを無料発行、そして何より重要な同カードのGoogle Pay/Apple Payへの登録が可能という万能銀行です。
+
+@<raw>{|html|<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">グローバルNFC端末(FeliCa SE無し)のEssential PH-1で国内コンビニ決済を通したいと思い始めて数ヶ月、Pixel 3購入費用をハワイ渡航費へあてるところからスタートしてチェック口座開設、カード受け取り、アクティベーションを経て本日ついにGoogle Pay支払いに成功したことを報告いたします。 <a href="https://t.co/KaABu7hSET">pic.twitter.com/KaABu7hSET</a></p>&mdash; Kei Nakazawa (@muo_jp) <a href="https://twitter.com/muo_jp/status/1059605511333543936?ref_src=twsrc%5Etfw">November 6, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>}
 
 == 小切手
 
 ITの時代にそんなバカなと思うかもしれません（私は思いました）が、北米ではまだまだ小切手が現役です@<fn>{is-it-cashless}。
 
-アナログキャッシュレス決済とでもいうべき、「小切手を受け取ったらATMに入れて数日待つと銀行側で回収して入金手続きをする」というこの世の業を煮詰めたようなワークフローも一般的です@<fn>{processing}。
+アナログキャッシュレス決済とでもいうべき、「小切手を受け取ったら自分の銀行のATMに入れ、数日待つと銀行側で回収して口座入金手続きをする」というこの世の業を煮詰めたようなワークフローも一般的です@<fn>{processing}。
 
 ざっくり1,000ドルを超える（西海岸界隈では平気で超えそうですね）家賃の入金に代表される大きめの額の入金はいまだ小切手というので驚愕します。
 私も口座開設の際に小切手帳の要不要を聞かれました@<fn>{checkbook}。
