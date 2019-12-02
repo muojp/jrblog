@@ -1,10 +1,11 @@
-= アメリカ圏のキャッシュレス決済2019
 ---
 layout: post
 title:  "アメリカ圏のキャッシュレス決済2019"
 date:   2019-12-02 23:58:00 +0900
 categories: ac2019
 ---
+= アメリカ圏のキャッシュレス決済2019
+
 //lead{
 
 本エントリは、@<href>{https://b.muo.jp, muo-ya} Advent Calendarの2日目の記事です。
