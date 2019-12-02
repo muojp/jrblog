@@ -1,0 +1,30 @@
+---
+---
+
+@import "sample";
+
+p {
+    text-indent: 0em;
+}
+
+div.lead {
+    background: #d6f1d6;
+}
+
+p.footnote {
+    font-size: small;
+    padding: 0.5em;
+    background: #f3f0f0;
+}
+
+div.column {
+    padding: 0.5em;
+    background: #e9edf0;
+    border: dotted 2px #808080;
+}
+
+div.column h3 {
+    color: #000080;
+    border-bottom: dotted 1px #000080;
+    margin-top: 0em;
+}
