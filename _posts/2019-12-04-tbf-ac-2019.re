@@ -2,7 +2,7 @@
 layout: post
 title:  "技術書典で出会った推しの1冊、RustでGBAプログラミング"
 date:   2019-12-04 01:08:00 +0900
-categories: about
+categories: ac2019
 ---
 = 技術書典で出会った推しの1冊、RustでGBAプログラミング
 
