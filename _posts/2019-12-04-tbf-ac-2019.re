@@ -39,7 +39,7 @@ CPU	ARM7	ARM11
 メインメモリ	32KB（CPU内）、ワークメモリ256KB	256MB
 //}
 
-GBAはRaspberry Piよりきれいに1.5-3桁非力なのも個人的にはポイント高いです。たまりません。
+GBAはRaspberry Piよりきれいに@<b>{1.5-3桁}非力なのも個人的にはポイント高いです。たまりません。
 ちなみにARM7って案外新しいのでは?と混乱しがちですが、ARM7とARMv7は完全に別物で、世界的に混同されがちのようで公式サイトに@<href>{http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.faqs/ka13706.html, FAQ}まであります。
 
 では、そろそろ本の紹介と推しポイントについて述べていきます。
