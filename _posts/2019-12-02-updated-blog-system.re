@@ -13,7 +13,7 @@ categories: about
  * 余分なタグ出力を削ってHTMLのvalidityを向上
  * 画像埋め込み対応
 
-1番目は既に@<href>{https://b.muo.jp/about/2019/12/01/hello-jekyll-review.html, 昨日のエントリ}の追記で書いたとおり。
+1番目は既に@<href>{https://b.muo.jp/2019/12/01/hello-jekyll-review.html, 昨日のエントリ}の追記で書いたとおり。
 多謝。
 
 2番目は簡易ステート管理を入れた。
