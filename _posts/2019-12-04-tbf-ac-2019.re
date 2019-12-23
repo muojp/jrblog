@@ -8,7 +8,7 @@ categories: ac2019
 
 //lead{
 
-本エントリは、@<href>{https://adventar.org/calendars/4224, 【推し祭り】技術書典で出会った良書 Advent Calendar 2019}の4日目の記事です。
+本エントリは、@<href>{https://adventar.org/calendars/4224, 【推し祭り】技術書典で出会った良書 Advent Calendar 2019}兼、@<href>{https://b.muo.jp, muo-ya} Advent Calendarの4日目の記事です。
 
 //}
 
