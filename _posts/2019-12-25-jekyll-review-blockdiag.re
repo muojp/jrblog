@@ -246,7 +246,7 @@ blockdiag {
   にこごり [shape="square", color="orange"];
   こねたもの [label="･ᴗ･", shape="ellipse", color="wheat"];
   group {
-    label = "寺";
+    label = "こむぎこ寺";
     color = "blue";
     こねたもの;
   }
@@ -261,7 +261,7 @@ blockdiag {
   にこごり [shape="square", color="orange"];
   こねたもの [label="･ᴗ･", shape="ellipse", color="wheat"];
   group {
-    label = "寺";
+    label = "こむぎこ寺";
     color = "blue";
     こねたもの;
   }
