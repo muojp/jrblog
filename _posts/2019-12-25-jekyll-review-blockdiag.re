@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Jekyll+Re:VIEWでさらっとグラフを入れるざんまい"
+title:  "Jekyll+Re:VIEWでさらっとグラフを生成するざんまい"
 date:   2019-12-25 17:18:00 +0900
 ---
-= Jekyll+Re:VIEWでさらっとグラフを入れるざんまい
+= Jekyll+Re:VIEWでさらっとグラフを生成するざんまい
 
 //lead{
 
