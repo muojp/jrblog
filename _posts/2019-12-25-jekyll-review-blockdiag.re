@@ -23,7 +23,7 @@ date:   2019-12-25 17:18:00 +0900
 
 あらかじめpipからblockdiagをインストールするのが前提です。
 
-TODO: インストールのリンクを一応貼る
+#@# TODO: インストールのリンクを一応貼る
 
 日本語を含む図の描画には、事前のフォント設定が必要です。
 
@@ -103,7 +103,7 @@ lib/review/builder.rbを見ると、こういう感じです。
 gemを書き換えてforkしたり、出力フォーマットを可変にするためのpull-requestを本家へ出すのは少々大掛かりすぎます。
 これは6年前に通った道です。
 
-TODO: リンク
+#@# TODO: リンク
 
 ごく単純なコードで出力フォーマットの変更に成功しました。
 オープンクラス万歳。
@@ -155,6 +155,39 @@ blockdiagで生成した画像の書き出し先は@<code>{images/html/}以下�
 
 Re:VIEWとJekyllからみて外部依存にあたるblockdiagをNetlifyのビルド環境へインストールする必要があります。
 
+懸念は日本語対応フォント、pipでのblockdiagインストールとパス解決です。
+
+=== pipでのパッケージ導入
+
+requirements.txtにまとめて投下するとインストールしてくれます。
+そして、Python本体のバージョンはruntime.txtに書き込むべしとdocsに書かれていました。
+
+#@# TODO: リンク貼ってもいい
+
+//cmd{
+5:19:15 PM: Collecting blockdiag==1.5.4
+5:19:16 PM:   Downloading https://files.pythonhosted.org/packages/e6/37/a3a4d09c8cbe16b303ed75fd07381e5460b37a25fe247645f2251477887a/blockdiag-1.5.4-py2.py3-none-any.whl (2.7MB)
+5:19:16 PM: Collecting funcparserlib==0.3.6
+5:19:16 PM:   Downloading https://files.pythonhosted.org/packages/cb/f7/b4a59c3ccf67c0082546eaeb454da1a6610e924d2e7a2a21f337ecae7b40/funcparserlib-0.3.6.tar.gz
+5:19:17 PM: Collecting Pillow==6.2.1
+5:19:17 PM:   Downloading https://files.pythonhosted.org/packages/89/3e/31c2e5385d7588016c6f7ac552e81c3fff2bef4bc61b6f82f8177752405c/Pillow-6.2.1-cp37-cp37m-manylinux1_x86_64.whl (2.1MB)
+5:19:17 PM: Collecting six==1.13.0
+5:19:17 PM:   Downloading https://files.pythonhosted.org/packages/65/26/32b8464df2a97e6dd1b656ed26b2c194606c16fe163c695a992b36c11cdf/six-1.13.0-py2.py3-none-any.whl
+5:19:17 PM: Collecting webcolors==1.10
+5:19:17 PM:   Downloading https://files.pythonhosted.org/packages/8b/ff/c21df7e08e68a1a84b947992c07dfed9cfe7219d068cb7728358d065c877/webcolors-1.10-py2.py3-none-any.whl
+5:19:17 PM: Requirement already satisfied: setuptools in /opt/buildhome/python3.7/lib/python3.7/site-packages (from blockdiag==1.5.4->-r requirements.txt (line 1)) (41.6.0)
+5:19:17 PM: Building wheels for collected packages: funcparserlib
+5:19:17 PM:   Building wheel for funcparserlib (setup.py): started
+5:19:18 PM:   Building wheel for funcparserlib (setup.py): finished with status 'done'
+5:19:18 PM:   Created wheel for funcparserlib: filename=funcparserlib-0.3.6-cp37-none-any.whl size=17449 sha256=3abe03ffce86a25872b78e35a53f962a6b5b8ecf0334c6a7199c8465392f529a
+5:19:18 PM:   Stored in directory: /opt/buildhome/.cache/pip/wheels/03/eb/48/ade4df39d3eb30e31518e91e4ee0572ca6c1292a94f782f9da
+5:19:18 PM: Successfully built funcparserlib
+5:19:18 PM: Installing collected packages: six, webcolors, funcparserlib, Pillow, blockdiag
+5:19:18 PM: Successfully installed Pillow-6.2.1 blockdiag-1.5.4 funcparserlib-0.3.6 six-1.13.0 webcolors-1.10
+5:19:19 PM: Pip dependencies installed
+//}
+
+おっ、無事Python 3.7で通っていますね。
 
 == できました
 
