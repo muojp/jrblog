@@ -7,7 +7,7 @@ date:   2019-12-25 17:18:00 +0900
 
 //lead{
 
-@<href>{https://b.muo.jp, muo-ya} Advent Calendar 6日目の記事です。
+本エントリは、@<href>{https://b.muo.jp, muo-ya} Advent Calendar 6日目の記事です。
 そして今日は12/25です。
 メリー・クリスマス！
 私の12月はもうしばらく続きます。
@@ -23,7 +23,7 @@ date:   2019-12-25 17:18:00 +0900
 
 あらかじめpipからblockdiagをインストールするのが前提です。
 
-#@# TODO: インストールのリンクを一応貼る
+本家サイトに@<href>{http://blockdiag.com/ja/blockdiag/introduction.html#id2, さまざまな導入方法}が書かれているので、環境にあわせてインストールしましょう。
 
 日本語を含む図の描画には、事前のフォント設定が必要です。
 
@@ -65,7 +65,7 @@ $ review-compile --target=html ch01.re > ch01.html
 
 === 出力フォーマットをPNGからSVGへ変更する
 
-blockdiagから出力したPNG画像は少々文字が潰れ気味です@<img>{2019-12-25-blockdiag-generated-png}@<img>{2019-12-25-blockdiag-generated-svg}。
+blockdiagから出力したPNG画像は少々文字が潰れ気味です（@<img>{2019-12-25-blockdiag-generated-png}）（@<img>{2019-12-25-blockdiag-generated-svg}）。
 
 //image[2019-12-25-blockdiag-generated-png][Re:VIEW+blockdiaで生成した図、PNG版]{
 //}
@@ -159,10 +159,15 @@ Re:VIEWとJekyllからみて外部依存にあたるblockdiagをNetlifyのビル
 
 === pipでのパッケージ導入
 
-requirements.txtにまとめて投下するとインストールしてくれます。
-そして、Python本体のバージョンはruntime.txtに書き込むべしとdocsに書かれていました。
+Netlifyの公式ドキュメントで書かれているとおりです。
+@<href>{https://docs.netlify.com/configure-builds/manage-dependencies/#python}
 
-#@# TODO: リンク貼ってもいい
+pip freezeの結果をrequirements.txtに記入しておくと、ビルド環境の準備段階でインストールしてくれて、もちろん結果イメージはキャッシュしてくれます。
+ちょっと特殊かな？と思ったのは、Python本体のバージョンをruntime.txt（あまり計画性を感じないファイル名）に書いておくとそれを使ってくれるとあります。
+
+@<href>{https://github.com/muojp/jrblog/blob/master/requirements.txt, requirements.txt}と@<href>{https://github.com/muojp/jrblog/blob/master/runtime.txt, runtime.txt}を作成して実際にやってみます。
+
+==== Netlifyのビルドログ
 
 //cmd{
 5:19:15 PM: Collecting blockdiag==1.5.4
@@ -189,7 +194,7 @@ requirements.txtにまとめて投下するとインストールしてくれま�
 
 おっ、無事Python 3.7で通っていますね。
 
-実行ログを見る限りでは、フォント不足はあれど変換処理までは走っているのでパス解決も問題なさそうです。
+ログを確認する限りでは、フォント不足はあれど変換処理までは走っているのでパス解決も問題なさそうです。
 
 //cmd{
 5:19:20 PM: INFO jekyll: blockdiag -a -T svg -o ./images/html/2019-12-25-diagram1.svg /tmp/review_graph20191225-1214-e3rf0e
@@ -200,7 +205,7 @@ requirements.txtにまとめて投下するとインストールしてくれま�
 
 === フォントをなんとかする
 
-実は、ここでフォントは不要です。
+実は、フォントのレンダリングは実施されません。
 PNGへの書き出し時には文字列の画像へのレンダリングが必要ですが、SVGの場合はタグ内に直接文字列が埋め込まれており利用者の手元でレンダリングするためです。
 
 しかしblockdiagはフォント不在状態を想定していないように見えます。
@@ -209,12 +214,20 @@ PNGへの書き出し時には文字列の画像へのレンダリングが必�
 いくらか試した結果、ここで読み込むフォントは必ずしも対象グリフを含む必要はありません。
 おそらく、空っぽのTrueTypeフォントファイルを作成して食わせれば通ると思います。
 
-→追記: 残念ながら、文字間計算をこの情報に依存しているようで、適当な軽量フォントを食わせたところ日本語がツメツメ表示になるという典型的なかっこ悪いパターンでした。
+→追記: 残念ながら、文字間計算をこの情報に依存しているようで、適当な軽量フォントを食わせたところ日本語がツメツメ表示になるという典型的なかっこ悪いパターンでした@<fn>{character-width}。
 やむなくNotoSansJP-Regular.otfをバンドルすることにします。
 
 今回は、ひとまずNotoフォントの一部を用意してリポジトリへ投入することにします。
-blockdiagのフォント設定はコマンドラインから渡す以外に@<code>{$HOME/.blockdiagrc}ファイルでfontpathを指定するという方法が用意されています。
-若干微妙な感じですが、暫定的にRe:VIEWプラグイン内でこのファイルを作成することにします。
+blockdiagで利用するフォントの設定方法はいくつかあります。
+
+ * コマンドラインから-f（--font）オプションを渡す
+ * @<code>{$HOME/.blockdiagrc}ファイルでfontpathを指定する
+ ** 本エントリの冒頭で軽く紹介したファイル
+ * font-mapを作成して渡す
+
+若干微妙な感じですが、ここでは暫定的にRe:VIEWプラグイン内で@<code>{$HOME/.blockdiagrc}ファイルを作成することにします。
+
+//footnote[character-width][落ち着いて考えると、絵文字に代表される多くの文字で、文字幅の確定にはフォント内の情報（合字可能性も含め）が不可欠なので、そりゃそうだという印象に変わりました]
 
 == できました
 
