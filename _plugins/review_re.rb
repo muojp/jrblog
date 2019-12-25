@@ -78,7 +78,7 @@ module Jekyll
     end
 
     def create_blockdiag_rc_file()
-      fontpath = File.join(File.expand_path(File.dirname(__FILE__)), 'NotoSans-Medium.ttf')
+      fontpath = File.join(File.expand_path(File.dirname(__FILE__)), 'NotoSansJP-Regular.otf')
       content = "[blockdiag]\nfontpath = %s" % fontpath
       File.open(File.expand_path('~/.blockdiagrc'), 'w') { |file| file.puts(content) }
     end
