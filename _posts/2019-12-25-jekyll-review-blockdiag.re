@@ -101,9 +101,20 @@ lib/review/builder.rbを見ると、こういう感じです。
 === ライブラリ本体へ手を入れるのをreview-ext.rbで回避
 
 gemを書き換えてforkしたり、出力フォーマットを可変にするためのpull-requestを本家へ出すのは少々大掛かりすぎます。
+Re:VIEWでは、@<code>{review-ext.rb}というファイルを原稿と同じディレクトリへ配置するだけで、簡易的な拡張が可能です。
 これは6年前に通った道です。
 
-#@# TODO: リンク
+@<raw>{|html|<iframe src="//www.slideshare.net/slideshow/embed_code/key/x09y9hobu7oXhz" width="595" height="485" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/KeiNakazawa/130810-7110bytes-review" title="13.08.10 7行110bytesで構文を拡張 出来るReVIEWの話" target="_blank">13.08.10 7行110bytesで構文を拡張 出来るReVIEWの話</a> </strong> from <strong><a href="https://www.slideshare.net/KeiNakazawa" target="_blank">Kei Nakazawa</a></strong> </div>}
+
+//emlist{
+module ReVIEW
+  class HTMLBuilder < Builder
+    def image_ext
+      'svg'
+    end
+  end
+end
+//}
 
 ごく単純なコードで出力フォーマットの変更に成功しました。
 オープンクラス万歳。
