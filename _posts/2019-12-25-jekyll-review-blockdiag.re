@@ -244,7 +244,7 @@ blockdiagで利用するフォントの設定方法はいくつかあります�
 //emlist{
 blockdiag {
   にこごり [shape="square", color="orange"];
-  こねたもの [label="･ᴗ･", shape="ellipse", color="wheat"];
+  こねたもの [label="･ᴗ･", shape="circle", color="wheat"];
   group {
     label = "こむぎこ寺";
     color = "blue";
@@ -259,7 +259,7 @@ blockdiag {
 //graph[2019-12-25-diagram1][blockdiag][ここに図が出たということは今回の試みが成功したということですの図]{
 blockdiag {
   にこごり [shape="square", color="orange"];
-  こねたもの [label="･ᴗ･", shape="ellipse", color="wheat"];
+  こねたもの [label="･ᴗ･", shape="circle", color="wheat"];
   group {
     label = "こむぎこ寺";
     color = "blue";
