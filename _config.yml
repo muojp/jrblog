@@ -42,6 +42,9 @@ keep_files:
 
 exclude:
   - _posts/images/
+  - .venv/
+  - requirements.txt
+  - runtime.txt
 
 sass:
   sass_dir: assets/css

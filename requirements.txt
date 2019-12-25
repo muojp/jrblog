@@ -1,0 +1,5 @@
+blockdiag==1.5.4
+funcparserlib==0.3.6
+Pillow==6.2.1
+six==1.13.0
+webcolors==1.10

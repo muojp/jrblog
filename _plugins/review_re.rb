@@ -1,9 +1,32 @@
 require 'review'
+require 'tmpdir'
+
+module ReVIEW
+  class HTMLBuilder < Builder
+    def image_ext
+      'svg'
+    end
+  end
+end
+
+module ReVIEW
+  class Builder
+    def graph_blockdiag(id, file_path, _line, tf_path)
+      system_graph(id, 'blockdiag', '-a', '-T', 'svg', '-o', file_path, tf_path)
+      file_path+'aaaaaaaaaaaaaaaaaaa'
+    end
+  end
+end
 
 module Jekyll
   class ReVIEWConverter < Converter
     safe true
     priority :low
+
+
+    # def self.tmp_img_dir
+    #   @tmpimgdir
+    # end
 
     def matches(ext)
       ext =~ /^\.re$/i
@@ -31,8 +54,9 @@ module Jekyll
               state = 2
             else
               if matches = line.match(/<img src="images\/([^"]+)" alt="([^"]*)" \/>/)
-                imgs.push(matches[1])
-                ret.push("<img src=\"/images/%s\" alt=\"%s\" />\n" % [matches[1], matches[2]])
+                imgpath = matches[1].sub(/^(html\/)*/, '')
+                imgs.push(imgpath)
+                ret.push("<img src=\"/images/%s\" alt=\"%s\" />\n" % [imgpath, matches[2]])
               else
                 ret.push(line)
               end
@@ -43,16 +67,23 @@ module Jekyll
       return ret.join, imgs
     end
 
-    def copy_images(srcdir, destdir, imgs)
+    def copy_images(workdir, destdir, imgs)
+      # TODO: search subdirectories recursively
+      candidate_dirs = [
+        File.join(workdir, 'images'),
+        File.join(workdir, 'images', 'html')
+      ]
       FileUtils.mkdir_p destdir
       imgs.each do |img|
-        FileUtils.cp(File.join(srcdir, img), File.join(destdir, img))
+        dir = candidate_dirs.detect {|dir| File.exist?(File.join(dir, img)) }
+        if dir != nil
+          FileUtils.cp(File.join(dir, img), File.join(destdir, img))
+        end
       end
     end
 
     def convert(content)
       workdir = File.join(@config['source'], '_posts')
-      imgsrcdir = File.join(workdir, 'images')
       imgdestdir = File.join(@config['destination'], 'images')
       config = ReVIEW::Configure.values
       config['builder'] = 'html'
@@ -71,7 +102,13 @@ module Jekyll
       compiler.compile(chap)
       s = builder.result
       s, imgs = extract_content(s)
-      copy_images(imgsrcdir, imgdestdir, imgs)
+      copy_images(workdir, imgdestdir, imgs)
+
+      # cleanup imgdir
+      tmpimgdir = File.join(workdir, 'images', 'html')
+      if Dir.exist?(tmpimgdir)
+        #FileUtils.rm_rf(tmpimgdir)
+      end
       s
     end
   end
