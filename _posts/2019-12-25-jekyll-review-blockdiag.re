@@ -189,13 +189,57 @@ requirements.txtにまとめて投下するとインストールしてくれま�
 
 おっ、無事Python 3.7で通っていますね。
 
+実行ログを見る限りでは、フォント不足はあれど変換処理までは走っているのでパス解決も問題なさそうです。
+
+//cmd{
+5:19:20 PM: INFO jekyll: blockdiag -a -T svg -o ./images/html/2019-12-25-diagram1.svg /tmp/review_graph20191225-1214-e3rf0e
+5:19:20 PM: ERROR: UnicodeEncodeError caught (check your font settings)
+5:19:20 PM: ERROR jekyll: failed to run command for id 2019-12-25-diagram1: blockdiag -a -T svg -o ./images/html/2019-12-25-diagram1.svg /tmp/review_graph20191225-1214-e3rf0e
+5:19:20 PM: WARN jekyll: :162: image not bound: 2019-12-25-diagram1
+//}
+
+=== フォントをなんとかする
+
+実は、ここでフォントは不要です。
+PNGへの書き出し時には文字列の画像へのレンダリングが必要ですが、SVGの場合はタグ内に直接文字列が埋め込まれており利用者の手元でレンダリングするためです。
+
+しかしblockdiagはフォント不在状態を想定していないように見えます。
+軽くソースを追いかけた感じだと、UnicodeEncodeErrorを投げている場所へ行き当たらなかったので、依存関係の少々深いところに起因しているように思います。
+
+いくらか試した結果、ここで読み込むフォントは必ずしも対象グリフを含む必要はありません。
+おそらく、空っぽのTrueTypeフォントファイルを作成して食わせれば通ると思います。
+
+今回は、ひとまずNotoフォントの一部を用意してリポジトリへ投入することにします。
+blockdiagのフォント設定はコマンドラインから渡す以外に@<code>{$HOME/.blockdiagrc}ファイルでfontpathを指定するという方法が用意されています。
+若干微妙な感じですが、暫定的にRe:VIEWプラグイン内でこのファイルを作成することにします。
+
 == できました
+
+//emlist{
+blockdiag {
+  にこごり [shape="square", color="orange"];
+  こねたもの [label="･ᴗ･", shape="ellipse", color="wheat"];
+  group {
+    label = "寺";
+    color = "blue";
+    こねたもの;
+  }
+  にこごり -> こねたもの [label="くるよ", textcolor="grey"];
+}
+//}
+
+このような記述で・・・。
 
 //graph[2019-12-25-diagram1][blockdiag][ここに図が出たということは今回の試みが成功したということですの図]{
 blockdiag {
-  A [label = "にこごり", color="orange"];
-  B [label = "我が家", color="blue"];
-  A -> B [label = "くるよ", textcolor="gray"];
+  にこごり [shape="square", color="orange"];
+  こねたもの [label="･ᴗ･", shape="ellipse", color="wheat"];
+  group {
+    label = "寺";
+    color = "blue";
+    こねたもの;
+  }
+  にこごり -> こねたもの [label="くるよ", textcolor="grey"];
 }
 //}
 

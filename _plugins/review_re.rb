@@ -9,24 +9,19 @@ module ReVIEW
   end
 end
 
-module ReVIEW
-  class Builder
-    def graph_blockdiag(id, file_path, _line, tf_path)
-      system_graph(id, 'blockdiag', '-a', '-T', 'svg', '-o', file_path, tf_path)
-      file_path+'aaaaaaaaaaaaaaaaaaa'
-    end
-  end
-end
+# module ReVIEW
+#   class Builder
+#     def graph_blockdiag(id, file_path, _line, tf_path)
+#       system_graph(id, 'blockdiag', '-a', '-T', 'svg', '-f', '../NotoSans-Medium.ttf', '-o', file_path, tf_path)
+#       file_path
+#     end
+#   end
+# end
 
 module Jekyll
   class ReVIEWConverter < Converter
     safe true
     priority :low
-
-
-    # def self.tmp_img_dir
-    #   @tmpimgdir
-    # end
 
     def matches(ext)
       ext =~ /^\.re$/i
@@ -82,7 +77,14 @@ module Jekyll
       end
     end
 
+    def create_blockdiag_rc_file()
+      fontpath = File.join(File.expand_path(File.dirname(__FILE__)), 'NotoSans-Medium.ttf')
+      content = "[blockdiag]\nfontpath = %s" % fontpath
+      File.open(File.expand_path('~/.blockdiagrc'), 'w') { |file| file.puts(content) }
+    end
+
     def convert(content)
+      create_blockdiag_rc_file()
       workdir = File.join(@config['source'], '_posts')
       imgdestdir = File.join(@config['destination'], 'images')
       config = ReVIEW::Configure.values
