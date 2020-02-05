@@ -70,7 +70,7 @@ USBドライバまわりで気になった部分があったので軽く調べ�
 == WinUSBの機能制限とlibusb
 
 さて、libusb1.0系のソースを読むと、WinUSBバックエンドを利用した場合にこの処理が単純にはいかないことがわかります。
-@<href>{https://github.com/libusb/libusb/blob/master/libusb/os/windows_winusb.c#L2952-L2961, 該当箇所のコメント}には「IOCTL_INTERNAL_USB_CYCLE_PORTはカーネルモードでしかサポートされず、またIOCTL_INTERNAL_USB_CYCLE_PORTはWindows Vista以降で削除されたので完全には実装できない」旨が書かれています。
+@<href>{https://github.com/libusb/libusb/blob/master/libusb/os/windows_winusb.c#L2952-L2961, 該当箇所のコメント}には「IOCTL_INTERNAL_USB_CYCLE_PORTはカーネルモードでしかサポートされず、またIOCTL_USB_HUB_CYCLE_PORTはWindows Vista以降で削除されたので完全には実装できない」旨が書かれています。
 
 実はこのコメントが書かれたのは10年ほど前で、その後にWinUSB事情は若干変わっています。
 @<href>{https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/usbioctl/ni-usbioctl-ioctl_usb_hub_cycle_port, IOCTL_USB_HUB_CYCLE_PORT}はWindows 8から管理者権限での動作時に限って再度サポートされています。
