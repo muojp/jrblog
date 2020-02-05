@@ -74,7 +74,7 @@ USBドライバまわりで気になった部分があったので軽く調べ�
 
 実はこのコメントが書かれたのは10年ほど前で、その後にWinUSB事情は若干変わっています。
 @<href>{https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/usbioctl/ni-usbioctl-ioctl_usb_hub_cycle_port, IOCTL_USB_HUB_CYCLE_PORT}はWindows 8から管理者権限での動作時に限って再度サポートされています。
-しかし、汎用USBドライバはなるべく一般ユーザー権限でも一通りのオペレーションを完結できるのが望ましいため、あまり気軽に叩けるAPIではありません。
+しかし、汎用USBドライバはなるべく一般ユーザー権限で一通りのオペレーションを完結できることが望ましいため、あまり気軽に叩けるAPI（I/O制御）ではありません。
 
 さて、libusbのwikiには@<href>{https://github.com/libusb/libusb/wiki/Windows, Windows}という世の様々な厄介（libusb0系からこのかた、ランタイムが乱立していることもあり）への対応も含めた情報をまとめたページがあるぐらいなのですが、その中に関連の話があります。
 
