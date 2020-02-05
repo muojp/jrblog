@@ -86,6 +86,8 @@ For version 1.0.21 or later, you can also use usbdk backend. usbdk provides anot
 
 == Windows版libedgetpuの処理シーケンス
 
+ここまでに集めた情報をあわせて、Windows版libedgetpuの処理シーケンスを推測してみます。
+
 DFUモードに対する一連の処理はデバイスの接続後初回のみ必要なもので、初期化処理以外の推論系や2回目以降の実行はユーザーモード動作で十分です。
 このため、「むやみに特権を握り続けない」原則に従いWindows版のEdge TPUランタイム（libedgetpu）では次のような実装をしていると推測できます。
 
