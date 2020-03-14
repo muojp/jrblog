@@ -86,16 +86,16 @@ JR東日本はSuica導入当初から高輪ゲートウェイ駅の開業を計�
 
 JR東日本はこれを承知のうえで、過去データとそれを読み書きするソフトウェアの一時的な混乱よりも、未来に向けて整った駅順コードを優先するという判断をおこなったことになります。
 
-追記: 記事公開後にTwitterを見ていて、磁気券に言及している方をみつけました。
-
-@<raw>{|html|<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">高輪ゲートウェイ駅の駅コード(サイバネコード)が001-006だったんだけど、田町駅とコード被った？開業前は<br>001-004 浜松町<br>001-006 田町<br>001-007 品川<br>だと思うけど。 <a href="https://twitter.com/hashtag/%E7%A3%81%E6%B0%97%E5%88%B8%E8%A7%A3%E6%9E%90?src=hash&amp;ref_src=twsrc%5Etfw">#磁気券解析</a> <a href="https://t.co/kkdmU4y6VK">pic.twitter.com/kkdmU4y6VK</a></p>&mdash; yoshi (@rk113) <a href="https://twitter.com/rk113/status/1238566515722485760?ref_src=twsrc%5Etfw">March 13, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>}
-
-ICカードに関しては履歴取得上の話で済みますが、複数日にまたがる事前発券があり得る磁気券ではよりJR(各社)のシステム検証費用がかかっていると想像できるので、しっかり工数のかかった判断だなと感じます。
-(追記ここまで)
-
 正直なところ、駅順コードに関しては過去データの扱いを優先して徐々にぐちゃぐちゃになって歴史的経緯として刻まれていくもの、と考えていたので、今回のJR東日本の対応には驚きがありました(羽田空港国際線開業時の京急やほか一部モノレールなどで事例はあるものの)。
 
 今年は東京メトロ日比谷線の虎ノ門駅開業も控えています。
 あちらはあちらで駅順コードにまつわる面白い事情があるので、別の機会に紹介しようと思います。
 
 ともかく、高輪ゲートウェイ駅開業おめでとうございます🎊
+
+追記: 記事公開後にTwitterを見ていて、磁気券に言及している方をみつけました。
+
+@<raw>{|html|<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">高輪ゲートウェイ駅の駅コード(サイバネコード)が001-006だったんだけど、田町駅とコード被った？開業前は<br>001-004 浜松町<br>001-006 田町<br>001-007 品川<br>だと思うけど。 <a href="https://twitter.com/hashtag/%E7%A3%81%E6%B0%97%E5%88%B8%E8%A7%A3%E6%9E%90?src=hash&amp;ref_src=twsrc%5Etfw">#磁気券解析</a> <a href="https://t.co/kkdmU4y6VK">pic.twitter.com/kkdmU4y6VK</a></p>&mdash; yoshi (@rk113) <a href="https://twitter.com/rk113/status/1238566515722485760?ref_src=twsrc%5Etfw">March 13, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>}
+
+ICカードに関しては履歴取得上の話で済みますが、複数日にまたがる事前発券があり得る磁気券ではよりJR(各社)のシステム検証費用がかかっていると想像できるので、しっかり工数のかかった判断だなと感じます。
+(追記ここまで)
