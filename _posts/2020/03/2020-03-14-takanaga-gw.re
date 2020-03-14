@@ -76,6 +76,10 @@ JR東日本はSuica導入当初から高輪ゲートウェイ駅の開業を計�
 //image[2020-03-14-suica-reader][Suica Readerでの読み取り結果]{
 //}
 
+駅券売機のICカード履歴表示機能でダブルチェックした結果も示します。
+
+@<raw>{|html|<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">案の定、高輪ゲートウェイ駅が増えて駅順コードを振り直したことで駅券売機での履歴出力にも影響が出てる。<br>会社の差も当然出ていて、JR東は新しい田町駅の出力に対応済み、都営地下鉄は新しい田町駅も未対応。いずれも間違った駅名を出さない対応はされている<br>1枚目: JR東<br>2枚目: 都営地下鉄 <a href="https://t.co/zdfKGCgqgs">pic.twitter.com/zdfKGCgqgs</a></p>&mdash; Kei Nakazawa (@muo_jp) <a href="https://twitter.com/muo_jp/status/1238695579997241344?ref_src=twsrc%5Etfw">March 14, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>}
+
 == 未来への選択
 
 田町駅のコードをずらして高輪ゲートウェイ駅を配置したことで、駅改札機での履歴出力はもとよりSuica Readerを始めとするICカード履歴読み取りツールや各種経費精算ツールでも日付をもとにした分岐処理が必要となります。
