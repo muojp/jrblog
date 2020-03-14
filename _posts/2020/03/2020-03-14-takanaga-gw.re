@@ -39,11 +39,11 @@ JR東日本はSuica導入当初から高輪ゲートウェイ駅の開業を計�
 
 しかし問題があります。
 
-浜松町(1-4) - 田町(1-6) - 品川(1-7)
+浜松町(1-4) - 田町(1-@<b>{6}) - 品川(1-7)
 
 とあった部分で空きコードを割り当てると
 
-浜松町(1-4) - 田町(1-6) - 高輪ゲートウェイ(1-5) - 品川(1-7)
+浜松町(1-4) - 田町(1-@<b>{6}) - 高輪ゲートウェイ(1-@<b>{5}) - 品川(1-7)
 
 という格好で、コード順と駅順が揃わないことになります。
 この部分をどう解決するのか、概ね
@@ -56,11 +56,11 @@ JR東日本はSuica導入当初から高輪ゲートウェイ駅の開業を計�
 
 == 高輪ゲートウェイ駅、開業
 
-3/14、予定通りに高輪ゲートウェイ駅が開業したので、早速降車してSuicaの履歴を読み取り（@<href>{https://play.google.com/store/apps/details?id=yanzm.products.suicareader, Suica Reader}を利用）、とても驚きました。
+3/14、予定通りに高輪ゲートウェイ駅が開業したので、早速降車してSuicaの履歴を読み取り（@<href>{https://play.google.com/store/apps/details?id=yanzm.products.suicareader, Suica Reader}を利用）、結果に驚きました。
 
 @<raw>{|html|<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Suica Readerでの出場駅は田町ということになってる。JREは駅コードずらしたのか <a href="https://t.co/TVI7mUNMCz">pic.twitter.com/TVI7mUNMCz</a></p>&mdash; Kei Nakazawa (@muo_jp) <a href="https://twitter.com/muo_jp/status/1238665079253372928?ref_src=twsrc%5Etfw">March 14, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>}
 
-この結果は、JR東日本が
+これは、JR東日本が
 
  * 浜松町(1-4) - 田町(1-6) - 高輪ゲートウェイ(1-5) - 品川(1-7)
 
