@@ -58,7 +58,7 @@ JR東日本はSuica導入当初から高輪ゲートウェイ駅の開業を計�
 
 3/14、予定通りに高輪ゲートウェイ駅が開業したので、早速降車してSuicaの履歴を読み取り、とても驚きました。
 
-//raw|html|<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Suica Readerでの出場駅は田町ということになってる。JREは駅コードずらしたのか <a href="https://t.co/TVI7mUNMCz">pic.twitter.com/TVI7mUNMCz</a></p>&mdash; Kei Nakazawa (@muo_jp) <a href="https://twitter.com/muo_jp/status/1238665079253372928?ref_src=twsrc%5Etfw">March 14, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+@<raw>{|html|<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">Suica Readerでの出場駅は田町ということになってる。JREは駅コードずらしたのか <a href="https://t.co/TVI7mUNMCz">pic.twitter.com/TVI7mUNMCz</a></p>&mdash; Kei Nakazawa (@muo_jp) <a href="https://twitter.com/muo_jp/status/1238665079253372928?ref_src=twsrc%5Etfw">March 14, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>}
 
 この結果は、
 
