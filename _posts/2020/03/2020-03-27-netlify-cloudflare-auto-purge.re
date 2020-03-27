@@ -5,7 +5,7 @@ date:   2020-03-27 22:01:00 +0900
 ---
 = Netlifyでデプロイ完了時にCloudflareのキャッシュを自動パージする
 
-以前「@<href>{https://b.muo.jp/2019/12/01/hello-jekyll-review.html, Jekyll+Re:VIEW+Netlifyでblogを作ってる}」で書いたように、このblogはGitHub上のリポジトリに変更をpushするとNetlifyで自動ビルドする運用をしています。
+以前「@<href>{https://b.muo.jp/2019/12/01/hello-jekyll-review.html, Jekyll+Re:VIEW+Netlifyでblogを作ってる}」で書いたように、このblogはGitHub上のリポジトリにpushしたRe:VIEWファイルをNetlifyで自動ビルドする運用です。
 Netlify自体に月間100GBの無料枠があるので転送量は今のところ問題になっていませんが、せっかくなのでCDN下でホストする気持ちが湧きました。
 
 CDNといえばキャッシュです。
