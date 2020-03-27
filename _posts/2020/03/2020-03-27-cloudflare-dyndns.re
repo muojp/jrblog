@@ -43,9 +43,9 @@ APIドキュメントが充実しており、それぞれcurlのサンプルも�
 == Dynamic DNSとして更新するDNSレコードの特定
 
 DNSのAレコードを更新するためにはCloudflareにおけるエンティティ構造を把握する必要があります。
-これは@<img>{block-cf}のように図示できます。
+これは@<img>{2020-03-27-dyndns-block-cf}のように図示できます。
 
-//graph[block-cf][blockdiag][Cloudflare APIのエンティティ構造]{
+//graph[2020-03-27-dyndns-block-cf][blockdiag][Cloudflare APIのエンティティ構造]{
 blockdiag {
   Zone1 [label = "Zone 1"];
   Zone2 [label = "Zone 2"];
