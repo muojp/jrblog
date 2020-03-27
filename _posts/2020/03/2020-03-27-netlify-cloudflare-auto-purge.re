@@ -59,7 +59,7 @@ Netlifyが送出に対応しているJWTは単純なHMACなので、標準機能
 
 === CloudflareのキャッシュパージAPI
 
-要注意ポイントがあります。
+わりと素直なAPIですが、要注意ポイントがあります。
 @<href>{https://api.cloudflare.com/#zone-purge-files-by-cache-tags-or-host, ホスト（FQDN）指定のキャッシュパージ}はEnterpriseプラン専用です。
 
 無料版でも利用できるのは@<href>{https://api.cloudflare.com/#zone-purge-files-by-url, URL指定のパージ}もしくは@<href>{https://api.cloudflare.com/#zone-purge-all-files, 全パージ}で、悩ましいところですが発生頻度を考えると全パージで良いでしょう。
