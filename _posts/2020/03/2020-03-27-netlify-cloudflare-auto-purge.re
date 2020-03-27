@@ -6,9 +6,9 @@ date:   2020-03-27 22:01:00 +0900
 = Netlifyでデプロイ完了時にCloudflareのキャッシュを自動パージする
 
 以前「@<href>{https://b.muo.jp/2019/12/01/hello-jekyll-review.html, Jekyll+Re:VIEW+Netlifyでblogを作ってる}」で書いたように、このblogはGitHub上のリポジトリにpushしたRe:VIEWファイルをNetlifyで自動ビルドする運用です。
-Netlify自体に月間100GBの無料枠があるので転送量は今のところ問題になっていませんが、せっかくなのでCDN下でホストする気持ちが湧きました。
+Netlify自体に月間100GBの無料枠があるので転送量は今のところ問題になっていませんが、せっかくなのでCDN（すでに使っているCloudflare）を利用しようと思い立ちました。
 
-CDNといえばキャッシュです。
+CDNといえばキャッシュに始まり、キャッシュに終わるものです（Compute@Edgeみたいなやつもありますが）。
 適切なタイミングでキャッシュを破棄（パージ）することで、Netlifyの高速な自動デプロイ機能@<fn>{common-case}を最大限に活かせます。
 
 Netlifyのビルド機能には完了時のwebhook設定が用意されており、CloudflareにはAPI経由のキャッシュパージ機能があるので、これらをAWS LambdaでつないでやればNetlify側の更新完了時にキャッシュをパージできそうです（@<img>{2020-03-27-cloudflare-autopurge}）。
