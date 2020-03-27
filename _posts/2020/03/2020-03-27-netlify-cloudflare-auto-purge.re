@@ -28,7 +28,9 @@ blockdiag {
 
 //footnote[common-case][ビルド依存関係が大きいのですが、Netlify側のビルド構成キャッシュがよくできており、GitHubへのpushからおおむね1分以内にはblogが更新されます]
 
-== Netlifyのwebhook仕様を簡単に調べる
+== 下調べ
+
+=== Netlifyのwebhook仕様を簡単に調べる
 
 Netlifyのwebhookメニュー（Settings → Build & deploy）を見ると、わりと柔軟にhookを送信できることがわかります（@<img>{2020-03-27-netlify-hook-cloudflare-purge}）。
 
@@ -44,9 +46,7 @@ CDNのキャッシュパージには@<code>{Deploy succeeded}のタイミング�
 hook先のURIに加えてsecret keyの設定オプションがあります。
 これについて@<href>{https://docs.netlify.com/site-deploys/notifications/#outgoing-webhooks, 該当するドキュメント}を読むと、シンプルなJWT（JSON Web Token）ベースのリクエストソース検証が可能のようです。
 
-サンプル実装がRubyである点、AWS LambdaのRubyランタイム（つい最近2.7もサポートした）を使ってみたかったこともあり、今回はRubyでやっていきます。
-
-== JWTとなかよく
+=== JWTとなかよく
 
 都合良いことに、Webhook送信側のNetlifyも、その受け側のAWS API GatewayもJWTをサポートします@<fn>{api-gateway-http-api}。
 
@@ -57,7 +57,7 @@ Netlifyが送出に対応しているJWTは単純なHMACなので、標準機能
 
 このため、API Gatewayステージでの認証は諦めてLambda側の前処理に負わせることにします。
 
-== CloudflareのキャッシュパージAPI
+=== CloudflareのキャッシュパージAPI
 
 要注意ポイントがあります。
 @<href>{https://api.cloudflare.com/#zone-purge-files-by-cache-tags-or-host, ホスト（FQDN）指定のキャッシュパージ}はEnterpriseプラン専用です。
@@ -72,7 +72,8 @@ Cloudflare APIをうまく叩けているかの確認にもひと工夫必要で
 
 == AWS Lambda+Sinatraで要件を満たす
 
-NetlifyのJWT署名を検証しつつCloudflareへキャッシュパージリクエストを発行する、という内容です。
+JWT署名検証のサンプル実装がRubyであることに加え、AWS LambdaのRubyランタイム（つい最近2.7もサポートした）を使ってみたかったので、今回はRubyでやっていきます。
+AWS LambdaのRuby（2.7）ランタイムで動作するSinatra+Rackのサイト上でNetlifyから飛んできたwebhookのJWT署名を検証、検証OKならCloudflareへキャッシュパージリクエストを発行する、という内容です。
 
 === AWS LambdaでSinatra
 
