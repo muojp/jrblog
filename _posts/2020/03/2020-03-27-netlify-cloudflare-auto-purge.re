@@ -13,7 +13,7 @@ CDNといえばキャッシュです。
 
 Netlifyのビルド機能には完了時のwebhook設定が用意されており、CloudflareにはAPI経由のキャッシュパージ機能があるので、これらをAWS LambdaでつないでやればNetlify側の更新完了時にキャッシュをパージできそうです（@<img>{2020-03-27-cloudflare-autopurge}）。
 
-//graph[2020-03-27-cloudflare-autopurge][blockdiag][Cloudflare APIのエンティティ構造]{
+//graph[2020-03-27-cloudflare-autopurge][blockdiag][めざすもの]{
 blockdiag {
   node_width = 60;
   node_height = 80;
