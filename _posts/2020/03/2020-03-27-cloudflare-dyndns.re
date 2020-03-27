@@ -1,16 +1,16 @@
 ---
 layout: post
-title:  "bashだけで完結させるCloudflare DynamicDNS"
+title:  "BashとCloudflareでつくる 無料Dynamic DNS"
 date:   2020-03-27 12:46:00 +0900
 ---
-= bashだけで完結させるCloudflare DynamicDNS
+= BashとCloudflareでつくる 無料Dynamic DNS
 
 自宅サーバーといえばDynamic DNS、という事情はなんだかんだで20年近くあまり変わっていません。
 IPアドレス更新クライアント付きの自動化可能なサービスとしては@<href>{https://www.noip.com/, No-IP}あたりが有名どころなのですが、毎月1回はサイトに行ってアクティベーションしないとホスト設定が失われるなど面倒がそれなりにあります。
 
-最近No-IPで運用しているホストが数回IPアドレス変更に追従失敗しており移行先を探していたのですが、よく考えると自ドメインのネームサーバーをCloudflareの無料プランに任せており、なんとなくAPIアクセスできそうな気がして調べたら案の定うまくいったので簡単にまとめます。
+最近No-IPで運用しているホストが数回IPアドレス変更に追従失敗しており移行先を探していたのですが、よく考えると自ドメインのネームサーバーをCloudflareの無料プランに任せており、なんとなくAPIアクセスできそうな気がして調べたら案の定Bashだけでうまくいったので簡単にまとめます。
 
-「bashだけという割にcurlもjqも使ってるじゃないか！」というbash原理主義の方は@<href>{https://www.youtube.com/channel/UCAL3JXZSzSm8AlZyD3nQdBA, プリミティブ・テクノロジー}の動画でも観て心を落ち着けて下さい。
+「Bashだけという割にcurlもjqも使ってるじゃないか！」というBash原理主義の方は@<href>{https://www.youtube.com/channel/UCAL3JXZSzSm8AlZyD3nQdBA, プリミティブ・テクノロジー}の動画でも観て心を落ち着けて下さい。
 
 == 下準備：Dynamic DNSとして利用するAレコードを作成
 
