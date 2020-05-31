@@ -18,8 +18,7 @@ ISOファイルを入手してインストール。
 
 == Docker
 
-https://forest.watch.impress.co.jp/docs/news/1239275.html
-この話題。
+@<href>{https://forest.watch.impress.co.jp/docs/news/1239275.html, 「Docker Desktop」が「Windows 10 Home」の「WSL 2」に対応、プレビュー版が公開}この話題。
 
 == キャッシュ開放
 
