@@ -179,6 +179,12 @@ Huaweiのモデムの多くはひっそりと音声通話機能を積んでい�
 
 == 実戦投入
 
+無事にSMS通知や着信通知を取り回せるようになりました。
+試してみると、@<img>{2020-06-03-rusurock-fitbit}のようにリストバンド系の端末で受け取るのが楽な感じです。
+
+//image[2020-06-03-rusurock-fitbit][Fitbit Charge 3でSMS通知受信]{
+//}
+
 rusurockは、@<href>{https://github.com/muojp/rusurock#usage, README}のとおりSlackのWebhook設定を環境変数へ記載してNodeのプロセスを起こすだけで簡単起動できます。
 しかしさすがに手動で頻繁にコマンドを叩くのはいやなので、systemdの設定ファイルを最低限書きます。
 
