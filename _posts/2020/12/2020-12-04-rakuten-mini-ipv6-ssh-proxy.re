@@ -60,7 +60,7 @@ blockdiag {
  * Google Nest Wi-Fi（家庭内通信用）
  * TP-Link Archer A6（IPoEルーター用）
 
-//graph[2020-12-04-network][blockdiag][network]{
+//graph[2020-12-04-network][blockdiag][ネット帰宅できない状態の構成]{
 blockdiag {
   HomeDevices [label="自宅のスマフォやPC"];
   group {
@@ -69,13 +69,15 @@ blockdiag {
     IPv4Gateway;
     IPv6Gateway;
   }
+  ISP;
   AFTR;
   IPv4Internet [label="IPv4インターネット"];
   GoogleNestWifi [label="Google Nest Wi-Fi"];
   HomeDevices -> GoogleNestWifi [label="Wi-Fi"];
   GoogleNestWifi -> IPv4Gateway [label="有線"];
   IPv4Gateway -> IPv6Gateway;
-  IPv6Gateway -> AFTR [folded, label="IPoE"];
+  IPv6Gateway -> ISP [folded, label="IPoE"];
+  ISP -> AFTR;
   AFTR -> IPv4Internet;
 }
 //}
