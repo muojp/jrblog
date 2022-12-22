@@ -30,6 +30,7 @@ Nature Remoのスマホアプリを開けば室温が分かるが、アプリを
 
  * 全世界で自分だけ使えればいい（自分の特殊ニーズを満たせればよい）
  * 全自動は目指さない。自分を操作インタフェースとして使うことで目的を達成できるなら積極的に使う
+ * bashと定番コマンド群でさらっと書く
  * 書いたら書いた通りに動き、簡単に捨てられる
 
 == Nature RemoのAPIから室温を取り出す
@@ -41,6 +42,13 @@ Nature Remoのスマホアプリを開けば室温が分かるが、アプリを
 複数のNature Remo端末を登録している場合はデバイスIDで更にフィルタするのが無難
 
 実際の更新間隔は1分か2分ごとであるように思うがひとまず気にせず30秒間隔でデータを取得する
+
+//emlist{
+  TEMPERATURE=`curl -s -X GET "https://api.nature.global/1/devices" -H "Authorization: Bearer $NATURE_TOKEN" \
+  | jq ".[] | select(.id == \"$DEVICE_ID\") | .newest_events.te.val"`
+//}
+
+こんな感じだろう
 
 == ZenityでGUI表示する
 
