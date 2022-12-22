@@ -21,7 +21,7 @@ date:   2022-12-22 00:00:00 +0900
 
 Nature Remoのスマホアプリを開けば室温が分かるが、アプリを四六時中開いているのは効率悪い
 
-室温計を追加購入したくはない、となるとやるべきことは作業中のPC上に室温をほどよく表示することである（@<img>{2022-12-22-nature-remo-gnome}）
+室温計を追加購入したくはない、となるとやるべきは作業中のPC上に室温をほどよく表示することである（@<img>{2022-12-22-nature-remo-gnome}）
 
 //image[2022-12-22-nature-remo-gnome][Nature Remoで取得した室温をGNOMEで表示する]{
 //}
@@ -41,14 +41,14 @@ Nature Remoのスマホアプリを開けば室温が分かるが、アプリを
 
 複数のNature Remo端末を登録している場合はデバイスIDで更にフィルタするのが無難
 
-実際の更新間隔は1分か2分ごとであるように思うがひとまず気にせず30秒間隔でデータを取得する
-
 //emlist{
   TEMPERATURE=`curl -s -X GET "https://api.nature.global/1/devices" -H "Authorization: Bearer $NATURE_TOKEN" \
   | jq ".[] | select(.id == \"$DEVICE_ID\") | .newest_events.te.val"`
 //}
 
 こんな感じだろう
+
+APIから取れる値の更新間隔は1分か2分ごとであるように思うが今回はひとまず気にせず30秒間隔でデータを取得しておく
 
 == ZenityでGUI表示する
 
