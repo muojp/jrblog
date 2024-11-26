@@ -61,7 +61,7 @@ GEM
       image_size
       rouge
       rubyzip
-    rexml (3.2.5)
+    rexml (3.3.9)
     rouge (3.17.0)
     rubyzip (2.3.0)
     safe_yaml (1.0.5)
