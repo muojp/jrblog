@@ -1,4 +1,4 @@
 blockdiag==3.0.0
 funcparserlib==2.0.0a0
-pillow==11.0.0
+pillow==9.5.0
 webcolors==24.11.1
