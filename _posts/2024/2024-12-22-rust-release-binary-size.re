@@ -52,7 +52,7 @@ panic = "abort"
 === stdのコンパクト版ビルド
 
 2018年頃には確立していた手法として、stdの実行時用コンパクト版をビルドする方法がある@<fn>{xargo}。
-MSVCでいうところのVC++ Runtime debug版とrelease版のようなもので、Rustでは通常debug時でもrelease時でも同一のプリビルトstdライブラリを静的リンクしているが、ビルド時にソースからstdを構築してバンドルする仕組み（概念としてはstd Aware Cargoと表現されている@<fn>{std-aware-cargo}によって不要なものを削ってバイナリサイズを削れる。
+MSVCでいうところのVC++ Runtime debug版とrelease版のようなもので、Rustでは通常debug時でもrelease時でも同一のプリビルトstdライブラリを静的リンクしているが、ビルド時にソースからstdを構築してバンドルする仕組み（概念としてはstd Aware Cargoと表現されている@<fn>{std-aware-cargo}）によって不要なものを削ってバイナリサイズを削れる。
 当初はXargoで実現されていた機能だが、現在はnightly版の@<code>{build-std}を使用する
 
 //cmd{
